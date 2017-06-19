@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nuno/CLionProjects/ZastUSB/Headers/Unix/SerialPort.h
+
+/home/nuno/CLionProjects/ZastUSB/Source/Unix/SerialPort.cpp
+unistd.h
+-
+cstdio
+-
+sys/ioctl.h
+-
+termio.h
+-
+fcntl.h
+-
+cstring
+-
+../../Headers/Unix/SerialPort.h
+/home/nuno/CLionProjects/ZastUSB/Headers/Unix/SerialPort.h
+
+/home/nuno/CLionProjects/ZastUSB/Source/main.cpp
+../Headers/Unix/SerialPort.h
+/home/nuno/CLionProjects/ZastUSB/Headers/Unix/SerialPort.h
+iostream
+-
+
