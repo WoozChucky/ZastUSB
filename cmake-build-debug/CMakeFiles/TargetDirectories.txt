@@ -1,3 +1,0 @@
-/home/nuno/CLionProjects/ZastUSB/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/nuno/CLionProjects/ZastUSB/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/nuno/CLionProjects/ZastUSB/cmake-build-debug/CMakeFiles/ZastUSB.dir
