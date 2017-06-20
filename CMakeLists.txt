@@ -4,6 +4,7 @@ project(ZastUSB)
 set(CMAKE_CXX_STANDARD 14)
 
 if(WIN32)
+
     set(SOURCE_FILES Source/main.cpp Source/Windows/SerialPort.cpp Headers/Windows/SerialPort.h)
     add_definitions(-D__WIN32)
 endif (WIN32)
@@ -14,3 +15,7 @@ if(UNIX)
 endif (UNIX)
 
 add_executable(ZastUSB ${SOURCE_FILES})
+
+INCLUDE_DIRECTORIES(Includes/Windows)
+LINK_DIRECTORIES(Libs/Windows)
+TARGET_LINK_LIBRARIES(ZastUSB libusb)

@@ -16,10 +16,10 @@ SerialPort::~SerialPort() {
 }
 
 int SerialPort::connect() {
-    return connect(L"COM1");
+    return connect("COM7");
 }
 
-int SerialPort::connect(wchar_t* device) {
+int SerialPort::connect(LPCSTR device) {
     int error = 0;
     DCB dcb;
 
@@ -33,7 +33,7 @@ int SerialPort::connect(wchar_t* device) {
     dcb.StopBits = ONESTOPBIT;
     dcb.ByteSize = 8;
 
-    serialPortHandle = CreateFile(device, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, NULL, NULL);
+    serialPortHandle = CreateFile(device, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
 
     if (serialPortHandle != INVALID_HANDLE_VALUE) {
         if (!SetCommState(serialPortHandle, &dcb))
@@ -58,7 +58,7 @@ void SerialPort::disconnect(void) {
     serialPortHandle = INVALID_HANDLE_VALUE;
 }
 
-int SerialPort::sendArray(unsigned char *buffer, int len) {
+int SerialPort::sendData(unsigned char *buffer, int len) {
     unsigned long result;
 
     if (serialPortHandle != INVALID_HANDLE_VALUE)
@@ -67,7 +67,7 @@ int SerialPort::sendArray(unsigned char *buffer, int len) {
     return result;
 }
 
-int SerialPort::getArray(unsigned char *buffer, int len) {
+int SerialPort::receiveData(unsigned char *buffer, int len) {
     unsigned long read_nbr;
 
     read_nbr = 0;

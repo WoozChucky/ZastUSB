@@ -18,7 +18,7 @@ public:
     ~SerialPort();
 
     int connect();
-    int connect(wchar_t *device);
+    int connect(LPCSTR device);
 
     void disconnect(void);
 
