@@ -158,5 +158,9 @@ void USBManager::writeData(unsigned char *message) {
     }
 }
 
+int USBManager::readData() {
+    return 1;
+}
+
 
 

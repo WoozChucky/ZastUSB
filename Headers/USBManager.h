@@ -9,7 +9,7 @@
 #include <vector>
 #include <libusb-1.0/libusb.h>
 
-#define ITERATE true
+#define ITERATE false
 
 using namespace std;
 
@@ -35,6 +35,7 @@ public:
     void writeData(unsigned char * message);
     void pickDevice(); //this is only used while we don't have a permanent USB device information
     void connect(int index); // public for now
+    int readData();
 };
 
 #endif //ZASTUSB_USBMANAGER_H

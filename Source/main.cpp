@@ -1,40 +1,12 @@
-#if __WIN32
-#include "../Headers/Windows/SerialPort.h"
-#include <lusb0_usb.h>
-#endif
-#if __UNIX
-
-#endif
-
-#include <iostream>
-#include "../Headers/USBManager.h"
-
-
-using namespace std;
+#include "../Headers/UDPServer.h"
 
 int main() {
 
-    USBManager * usbManager = new USBManager();
+    boost::asio::io_service io_service;
 
-    try {
+    UDPServer udpServer(io_service, 9000);
 
-        usbManager->initialize();
-
-        usbManager->scanDevices();
-
-        usbManager->connect(0); // connects to device with index 0, assuming it exists for now
-
-        usbManager->writeData((unsigned char *) "Vou para casa lole");
-
-        usbManager->closeDevice();
-
-        usbManager->shutdown();
-
-    } catch (unsigned char * exception) {
-        std::cout << exception << endl;
-    }
-
-    delete usbManager;
+    io_service.run();
 
     return 0;
 }
